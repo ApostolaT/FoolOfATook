@@ -1,0 +1,16 @@
+{
+    "name": "linenowl/fool-of-atook",
+    "type": "project",
+    "authors": [
+        {
+            "name": "ApostolaT",
+            "email": "allex.post26@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Model\\": "Model"
+        }
+    }
+}
