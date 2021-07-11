@@ -7,7 +7,7 @@ namespace Model;
 use ProjectTrait\SupernaturalSerializationTrait;
 
 
-class Elf extends ChildrenOfIluvatar
+class Elf extends ChildOfIluvatar
 {
     private const STRENGTH = 30;
     private const INTELLIGENCE = 30;

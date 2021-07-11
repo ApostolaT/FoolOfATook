@@ -11,7 +11,9 @@
     "autoload": {
         "psr-4": {
             "Model\\": "Model",
-            "ProjectTrait\\": "Trait"
+            "ProjectTrait\\": "Trait",
+            "Contract\\": "Contract",
+            "ProjectService\\": "Service"
         }
     }
 }

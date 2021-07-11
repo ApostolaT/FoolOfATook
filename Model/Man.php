@@ -7,7 +7,7 @@ namespace Model;
 use ProjectTrait\SimpleSerializationTrait;
 
 
-class Man extends ChildrenOfIluvatar
+class Man extends ChildOfIluvatar
 {
     private const STRENGTH = 30;
     private const INTELLIGENCE = 30;

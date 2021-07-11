@@ -7,7 +7,7 @@ namespace Model;
 use ProjectTrait\SupernaturalSerializationTrait;
 
 
-class Goblin extends ChildrenOfIluvatar
+class Goblin extends ChildOfIluvatar
 {
     private const STRENGTH = 20;
     private const INTELLIGENCE = 10;

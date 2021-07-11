@@ -7,7 +7,7 @@ namespace Model;
 use ProjectTrait\SupernaturalSerializationTrait;
 
 
-class Wizard extends ChildrenOfIluvatar
+class Wizard extends ChildOfIluvatar
 {
     private const STRENGTH = 20;
     private const INTELLIGENCE = 30;

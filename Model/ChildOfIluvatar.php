@@ -2,7 +2,7 @@
 
 namespace Model;
 
-abstract class ChildrenOfIluvatar
+abstract class ChildOfIluvatar
 {
     protected string  $name;
     protected float   $strength;
@@ -20,4 +20,6 @@ abstract class ChildrenOfIluvatar
     }
 
     abstract protected function setFightPower():void;
+    abstract public function __serialize(): array;
+    abstract public function __unserialize(array $data): void;
 }

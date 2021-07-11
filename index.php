@@ -3,16 +3,41 @@
 define('__ROOT__', dirname(__FILE__));
 require_once __ROOT__."/vendor/autoload.php";
 
-use \Model\Hobbit;
-use \Model\Elf;
+use Model\Balrog;
+use Model\ChildrenOfIluvatarCollection;
+use Model\Dwarf;
+use Model\Elf;
+use Model\Goblin;
+use Model\Hobbit;
+use Model\Man;
+use Model\Orc;
+use Model\Trol;
 use Model\Wizard;
+use ProjectService\EntityCollectionSerializationService;
 
 $wizard = new Wizard("Frodo", 0.3, 0.6, 0.5, 0.9);
+$balrog = new Balrog("Frodo", 0.3, 0.6, 0.5, 0.9);
+$dwarf = new Dwarf("Frodo", 0.3, 0.6, 0.5);
+$elf = new Elf("Frodo", 0.3, 0.6, 0.5, 0.9);
+$goblin = new Goblin("Frodo", 0.3, 0.6, 0.5, 0.9);
+$hobbit = new Hobbit("Frodo", 0.3, 0.6, 0.5);
+$man = new Man("Frodo", 0.3, 0.6, 0.5);
+$orc = new Orc("Frodo", 0.3, 0.6, 0.5, 0.9);
+$trol = new Trol("Frodo", 0.3, 0.6, 0.5, 0.9);
 
-$serializedWizard = serialize($wizard);
+$childrenOfIluvatar = new ChildrenOfIluvatarCollection();
+$childrenOfIluvatar->add($wizard);
+$childrenOfIluvatar->add($balrog);
+$childrenOfIluvatar->add($dwarf);
+$childrenOfIluvatar->add($elf);
+$childrenOfIluvatar->add($hobbit);
+$childrenOfIluvatar->add($man);
+$childrenOfIluvatar->add($orc);
+$childrenOfIluvatar->add($trol);
 
-echo sprintf("Serialized wizard: \n%s\n", $serializedWizard);
+$entitySerializationService = new EntityCollectionSerializationService();
 
-$desirializedWizard = unserialize($serializedWizard);
+$array = $entitySerializationService->serialize($childrenOfIluvatar);
 
-var_dump($desirializedWizard);
+$deserializedArray = $entitySerializationService->unserialize($array);
+

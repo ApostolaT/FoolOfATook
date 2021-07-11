@@ -7,7 +7,7 @@ namespace Model;
 use ProjectTrait\SupernaturalSerializationTrait;
 
 
-class Balrog extends ChildrenOfIluvatar
+class Balrog extends ChildOfIluvatar
 {
     private const STRENGTH = 60;
     private const INTELLIGENCE = 5;

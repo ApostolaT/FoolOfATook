@@ -7,7 +7,7 @@ namespace Model;
 use ProjectTrait\SupernaturalSerializationTrait;
 
 
-class Trol extends ChildrenOfIluvatar
+class Trol extends ChildOfIluvatar
 {
     private const STRENGTH = 50;
     private const INTELLIGENCE = 1;
