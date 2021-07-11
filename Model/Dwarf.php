@@ -4,11 +4,11 @@
 namespace Model;
 
 
-class Hobbit extends ChildrenOfIluvatar
+class Dwarf extends ChildrenOfIluvatar
 {
-    private const STRENGTH = 10;
-    private const INTELLIGENCE = 20;
-    private const CHARISMA = 20;
+    private const STRENGTH = 40;
+    private const INTELLIGENCE = 10;
+    private const CHARISMA = 10;
 
     public function __construct(
         string $name,
@@ -25,7 +25,7 @@ class Hobbit extends ChildrenOfIluvatar
     {
         $this->fightPower =
             $this::STRENGTH * $this->strength +
-            $this->intelligence * $this->intelligence +
+            $this::INTELLIGENCE * $this->intelligence +
             $this::CHARISMA * $this->charisma;
     }
 }
