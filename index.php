@@ -5,8 +5,14 @@ require_once __ROOT__."/vendor/autoload.php";
 
 use \Model\Hobbit;
 use \Model\Elf;
+use Model\Wizard;
 
-$hobbit = new Hobbit("Frodo", 0.3, 0.6, 0.5);
-$elf = new Elf("Elf", 0.9, 0.9, 0.7, 0.6);
+$wizard = new Wizard("Frodo", 0.3, 0.6, 0.5, 0.9);
 
-var_dump($elf);
+$serializedWizard = serialize($wizard);
+
+echo sprintf("Serialized wizard: \n%s\n", $serializedWizard);
+
+$desirializedWizard = unserialize($serializedWizard);
+
+var_dump($desirializedWizard);

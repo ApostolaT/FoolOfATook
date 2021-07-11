@@ -4,6 +4,9 @@
 namespace Model;
 
 
+use ProjectTrait\SimpleSerializationTrait;
+
+
 class Dwarf extends ChildrenOfIluvatar
 {
     private const STRENGTH = 40;
@@ -28,4 +31,6 @@ class Dwarf extends ChildrenOfIluvatar
             $this::INTELLIGENCE * $this->intelligence +
             $this::CHARISMA * $this->charisma;
     }
+
+    use SimpleSerializationTrait;
 }

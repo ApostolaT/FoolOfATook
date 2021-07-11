@@ -4,6 +4,9 @@
 namespace Model;
 
 
+use ProjectTrait\SupernaturalSerializationTrait;
+
+
 class Goblin extends ChildrenOfIluvatar
 {
     private const STRENGTH = 20;
@@ -34,4 +37,6 @@ class Goblin extends ChildrenOfIluvatar
             $this::CHARISMA * $this->charisma +
             $this::SUPERNATURAL * $this->supernatural;
     }
+
+    use SupernaturalSerializationTrait;
 }

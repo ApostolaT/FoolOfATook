@@ -4,6 +4,9 @@
 namespace Model;
 
 
+use ProjectTrait\SupernaturalSerializationTrait;
+
+
 class Balrog extends ChildrenOfIluvatar
 {
     private const STRENGTH = 60;
@@ -34,4 +37,6 @@ class Balrog extends ChildrenOfIluvatar
             $this::CHARISMA * $this->charisma +
             $this::SUPERNATURAL * $this->supernatural;
     }
+
+    use SupernaturalSerializationTrait;
 }

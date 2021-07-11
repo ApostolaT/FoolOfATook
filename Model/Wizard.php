@@ -4,6 +4,9 @@
 namespace Model;
 
 
+use ProjectTrait\SupernaturalSerializationTrait;
+
+
 class Wizard extends ChildrenOfIluvatar
 {
     private const STRENGTH = 20;
@@ -34,4 +37,6 @@ class Wizard extends ChildrenOfIluvatar
             $this::CHARISMA * $this->charisma +
             $this::SUPERNATURAL * $this->supernatural;
     }
+
+    use SupernaturalSerializationTrait;
 }

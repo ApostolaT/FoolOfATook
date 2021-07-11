@@ -4,6 +4,9 @@
 namespace Model;
 
 
+use ProjectTrait\SupernaturalSerializationTrait;
+
+
 class Elf extends ChildrenOfIluvatar
 {
     private const STRENGTH = 30;
@@ -34,4 +37,6 @@ class Elf extends ChildrenOfIluvatar
             $this::CHARISMA * $this->charisma +
             $this::SUPERNATURAL * $this->supernatural;
     }
+
+    use SupernaturalSerializationTrait;
 }

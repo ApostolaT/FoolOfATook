@@ -4,6 +4,9 @@
 namespace Model;
 
 
+use ProjectTrait\SimpleSerializationTrait;
+
+
 class Man extends ChildrenOfIluvatar
 {
     private const STRENGTH = 30;
@@ -28,4 +31,6 @@ class Man extends ChildrenOfIluvatar
             $this::INTELLIGENCE * $this->intelligence +
             $this::CHARISMA * $this->charisma;
     }
+
+    use SimpleSerializationTrait;
 }

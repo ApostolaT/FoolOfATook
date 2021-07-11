@@ -4,6 +4,9 @@
 namespace Model;
 
 
+use ProjectTrait\SimpleSerializationTrait;
+
+
 class Hobbit extends ChildrenOfIluvatar
 {
     private const STRENGTH = 10;
@@ -28,4 +31,6 @@ class Hobbit extends ChildrenOfIluvatar
             $this->intelligence * $this->intelligence +
             $this::CHARISMA * $this->charisma;
     }
+
+    use SimpleSerializationTrait;
 }
