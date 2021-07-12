@@ -19,7 +19,8 @@ trait SimpleSerializationTrait
             'strength'      => $this->strength,
             'intelligence'  => $this->intelligence,
             'charisma'      => $this->charisma,
-            'fightPower'    => $this->fightPower
+            'fightPower'    => $this->fightPower,
+            'health'        => $this->health
         ];
     }
 
@@ -30,5 +31,6 @@ trait SimpleSerializationTrait
         $this->intelligence = $data['intelligence'];
         $this->charisma     = $data['charisma'];
         $this->fightPower   = $data['fightPower'];
+        $this->health       = $data['health'];
     }
 }

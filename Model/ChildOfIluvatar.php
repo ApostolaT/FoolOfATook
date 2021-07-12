@@ -4,11 +4,12 @@ namespace Model;
 
 abstract class ChildOfIluvatar
 {
-    protected string  $name;
-    protected float   $strength;
-    protected float   $intelligence;
-    protected float   $charisma;
-    protected float   $fightPower;
+    protected string    $name;
+    protected float     $strength;
+    protected float     $intelligence;
+    protected float     $charisma;
+    protected float     $fightPower;
+    protected float     $health;
 
     public function __construct(string $name, float $strength, float $intelligence, float $charisma)
     {
@@ -17,6 +18,7 @@ abstract class ChildOfIluvatar
         $this->strength = $strength;
         $this->intelligence = $intelligence;
         $this->charisma = $charisma;
+        $this->health = 100;
     }
 
     abstract protected function setFightPower():void;

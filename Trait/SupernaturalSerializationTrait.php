@@ -20,7 +20,8 @@ trait SupernaturalSerializationTrait
             'intelligence'  => $this->intelligence,
             'charisma'      => $this->charisma,
             'supernatural'  => $this->supernatural,
-            'fightPower'    => $this->fightPower
+            'fightPower'    => $this->fightPower,
+            'health'        => $this->health
         ];
     }
 
@@ -32,5 +33,6 @@ trait SupernaturalSerializationTrait
         $this->charisma     = $data['charisma'];
         $this->supernatural = $data['supernatural'];
         $this->fightPower   = $data['fightPower'];
+        $this->health       = $data['health'];
     }
 }

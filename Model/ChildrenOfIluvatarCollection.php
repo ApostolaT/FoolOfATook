@@ -21,14 +21,6 @@ class ChildrenOfIluvatarCollection implements \IteratorAggregate
         $this->childrenOfiluvatar[] = $child;
     }
 
-    /**
-     * @return array
-     */
-    public function getChildrenOfIluvatar(): array
-    {
-        return $this->childrenOfiluvatar;
-    }
-
     public function getIterator()
     {
         return new \ArrayIterator($this->childrenOfiluvatar);

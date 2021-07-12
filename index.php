@@ -2,6 +2,7 @@
 
 define('__ROOT__', dirname(__FILE__));
 require_once __ROOT__."/vendor/autoload.php";
+include_once __ROOT__."/config.php";
 
 use Model\Balrog;
 use Model\ChildrenOfIluvatarCollection;
@@ -13,6 +14,7 @@ use Model\Man;
 use Model\Orc;
 use Model\Trol;
 use Model\Wizard;
+use ProjectService\ArmyParserService;
 use ProjectService\EntityCollectionSerializationService;
 use ProjectService\FileAccessWrapperService;
 use ProjectService\FileReaderService;
@@ -48,4 +50,11 @@ $fileReaderService = new FileReaderService($entitySerializationService, $fileAcc
 $readChildrenOfIluvatar = new ChildrenOfIluvatarCollection();
 $readChildrenOfIluvatar = $fileReaderService->readFromFile(__ROOT__."/Resources/file.txt", $readChildrenOfIluvatar);
 
-var_dump($readChildrenOfIluvatar);
+if (isset($config)) {
+    echo "Reading the characters that are allowed in the armies..." . PHP_EOL;
+    $goodArmyConfig = $config['GOODARMY'];
+    $badArmyConfig = $config['BADARMY'];
+    $armyParserService = new ArmyParserService($goodArmyConfig, $badArmyConfig);
+    $armyCollection = $armyParserService->parseChildrenOfIluvatar($readChildrenOfIluvatar);
+    var_dump($armyCollection);
+}
