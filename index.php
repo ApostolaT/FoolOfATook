@@ -14,6 +14,8 @@ use Model\Orc;
 use Model\Trol;
 use Model\Wizard;
 use ProjectService\EntityCollectionSerializationService;
+use ProjectService\FileAccessWrapperService;
+use ProjectService\FileReaderService;
 use ProjectService\FileWriterService;
 
 $wizard = new Wizard("Frodo", 0.3, 0.6, 0.5, 0.9);
@@ -37,7 +39,13 @@ $childrenOfIluvatar->add($orc);
 $childrenOfIluvatar->add($trol);
 
 $entitySerializationService = new EntityCollectionSerializationService();
+$fileAccessWrapperService = new FileAccessWrapperService();
 
-$fileWriteService = new FileWriterService($entitySerializationService);
+$fileWriteService = new FileWriterService($entitySerializationService, $fileAccessWrapperService);
 $fileWriteService->writeToFile(__ROOT__."/Resources/file.txt", $childrenOfIluvatar);
 
+$fileReaderService = new FileReaderService($entitySerializationService, $fileAccessWrapperService);
+$readChildrenOfIluvatar = new ChildrenOfIluvatarCollection();
+$readChildrenOfIluvatar = $fileReaderService->readFromFile(__ROOT__."/Resources/file.txt", $readChildrenOfIluvatar);
+
+var_dump($readChildrenOfIluvatar);

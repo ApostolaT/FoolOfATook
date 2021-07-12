@@ -48,4 +48,13 @@ class EntityCollectionSerializationService implements EntityCollectionSerializab
 
         return $childrenOfIluvatarCollection;
     }
+
+    public function unserializeOne(string $data, \Traversable $childrenOffIluvatar): Traversable
+    {
+        $childrenOffIluvatar->add(
+            unserialize($data, ['allowed_classes' => $this::ALLOWEDCLASES])
+        );
+
+        return $childrenOffIluvatar;
+    }
 }
