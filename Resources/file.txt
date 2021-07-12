@@ -1,0 +1,8 @@
+O:12:"Model\Wizard":6:{s:4:"name";s:5:"Frodo";s:8:"strength";d:0.3;s:12:"intelligence";d:0.6;s:8:"charisma";d:0.5;s:12:"supernatural";d:0.9;s:10:"fightPower";d:44.5;}
+O:12:"Model\Balrog":6:{s:4:"name";s:5:"Frodo";s:8:"strength";d:0.3;s:12:"intelligence";d:0.6;s:8:"charisma";d:0.5;s:12:"supernatural";d:0.9;s:10:"fightPower";d:48.5;}
+O:11:"Model\Dwarf":5:{s:4:"name";s:5:"Frodo";s:8:"strength";d:0.3;s:12:"intelligence";d:0.6;s:8:"charisma";d:0.5;s:10:"fightPower";d:23;}
+O:9:"Model\Elf":6:{s:4:"name";s:5:"Frodo";s:8:"strength";d:0.3;s:12:"intelligence";d:0.6;s:8:"charisma";d:0.5;s:12:"supernatural";d:0.9;s:10:"fightPower";d:34;}
+O:12:"Model\Hobbit":5:{s:4:"name";s:5:"Frodo";s:8:"strength";d:0.3;s:12:"intelligence";d:0.6;s:8:"charisma";d:0.5;s:10:"fightPower";d:13.36;}
+O:9:"Model\Man":5:{s:4:"name";s:5:"Frodo";s:8:"strength";d:0.3;s:12:"intelligence";d:0.6;s:8:"charisma";d:0.5;s:10:"fightPower";d:32;}
+O:9:"Model\Orc":6:{s:4:"name";s:5:"Frodo";s:8:"strength";d:0.3;s:12:"intelligence";d:0.6;s:8:"charisma";d:0.5;s:12:"supernatural";d:0.9;s:10:"fightPower";d:20;}
+O:10:"Model\Trol":6:{s:4:"name";s:5:"Frodo";s:8:"strength";d:0.3;s:12:"intelligence";d:0.6;s:8:"charisma";d:0.5;s:12:"supernatural";d:0.9;s:10:"fightPower";d:25.1;}

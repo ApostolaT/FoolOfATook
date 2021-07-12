@@ -14,6 +14,7 @@ use Model\Orc;
 use Model\Trol;
 use Model\Wizard;
 use ProjectService\EntityCollectionSerializationService;
+use ProjectService\FileWriterService;
 
 $wizard = new Wizard("Frodo", 0.3, 0.6, 0.5, 0.9);
 $balrog = new Balrog("Frodo", 0.3, 0.6, 0.5, 0.9);
@@ -37,7 +38,6 @@ $childrenOfIluvatar->add($trol);
 
 $entitySerializationService = new EntityCollectionSerializationService();
 
-$array = $entitySerializationService->serialize($childrenOfIluvatar);
-
-$deserializedArray = $entitySerializationService->unserialize($array);
+$fileWriteService = new FileWriterService($entitySerializationService);
+$fileWriteService->writeToFile(__ROOT__."/Resources/file.txt", $childrenOfIluvatar);
 

@@ -13,6 +13,7 @@ trait SupernaturalSerializationTrait
 {
     public function __serialize(): array
     {
+        echo "Serializing "  . get_class($this) . PHP_EOL;
         return [
             'name'          => $this->name,
             'strength'      => $this->strength,

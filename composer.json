@@ -13,7 +13,8 @@
             "Model\\": "Model",
             "ProjectTrait\\": "Trait",
             "Contract\\": "Contract",
-            "ProjectService\\": "Service"
+            "ProjectService\\": "Service",
+            "ProjectException\\": "Exception"
         }
     }
 }
