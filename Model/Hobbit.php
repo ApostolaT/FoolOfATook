@@ -1,35 +1,29 @@
 <?php
 
 
-namespace Model;
+namespace FoolOfATook\Model;
 
 
-use ProjectTrait\SimpleSerializationTrait;
+use FoolOfATook\Traits\SimpleSerializationTrait;
 
 
 class Hobbit extends ChildOfIluvatar
 {
-    private const STRENGTH = 10;
-    private const INTELLIGENCE = 20;
-    private const CHARISMA = 20;
-
     public function __construct(
         string $name,
         float $strength,
         float $intelligence,
         float $charisma
-    ) {
+    ){
         parent::__construct($name, $strength, $intelligence, $charisma);
         // TODO: check for range, throw Exception;
-        $this->setFightPower();
     }
 
-    protected function setFightPower(): void
+    protected function getFightPower(): float
     {
-        $this->fightPower =
-            $this::STRENGTH * $this->strength +
-            $this->intelligence * $this->intelligence +
-            $this::CHARISMA * $this->charisma;
+        return  10 * $this->strength +
+                20 * $this->intelligence +
+                20 * $this->charisma;
     }
 
     use SimpleSerializationTrait;

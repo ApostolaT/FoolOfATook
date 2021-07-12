@@ -1,18 +1,14 @@
 <?php
 
 
-namespace Model;
+namespace FoolOfATook\Model;
 
 
-use ProjectTrait\SimpleSerializationTrait;
+use FoolOfATook\Traits\SimpleSerializationTrait;
 
 
 class Man extends ChildOfIluvatar
 {
-    private const STRENGTH = 30;
-    private const INTELLIGENCE = 30;
-    private const CHARISMA = 10;
-
     public function __construct(
         string $name,
         float $strength,
@@ -21,15 +17,14 @@ class Man extends ChildOfIluvatar
     ) {
         parent::__construct($name, $strength, $intelligence, $charisma);
         // TODO: check for range, throw Exception;
-        $this->setFightPower();
     }
 
-    protected function setFightPower(): void
+    protected function getFightPower(): float
     {
-        $this->fightPower =
-            $this::STRENGTH * $this->strength +
-            $this::INTELLIGENCE * $this->intelligence +
-            $this::CHARISMA * $this->charisma;
+        return
+            30 * $this->strength +
+            30 * $this->intelligence +
+            10 * $this->charisma;
     }
 
     use SimpleSerializationTrait;

@@ -10,11 +10,11 @@
     "require": {},
     "autoload": {
         "psr-4": {
-            "Model\\": "Model",
-            "ProjectTrait\\": "Trait",
-            "Contract\\": "Contract",
-            "ProjectService\\": "Service",
-            "ProjectException\\": "Exception"
+            "FoolOfATook\\Model\\": "Model",
+            "FoolOfATook\\Traits\\": "Traits",
+            "FoolOfATook\\Contract\\": "Contract",
+            "FoolOfATook\\Service\\": "Service",
+            "FoolOfATook\\Exception\\": "Exception"
         }
     }
 }

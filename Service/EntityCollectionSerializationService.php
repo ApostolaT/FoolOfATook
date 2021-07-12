@@ -1,20 +1,19 @@
 <?php
 
 
-namespace ProjectService;
+namespace FoolOfATook\Service;
 
 
-use Contract\EntityCollectionSerializableInterface;
-use Model\Balrog;
-use Model\ChildrenOfIluvatarCollection;
-use Model\Dwarf;
-use Model\Elf;
-use Model\Goblin;
-use Model\Hobbit;
-use Model\Man;
-use Model\Orc;
-use Model\Trol;
-use Model\Wizard;
+use FoolOfATook\Contract\EntityCollectionSerializableInterface;
+use FoolOfATook\Model\Balrog;
+use FoolOfATook\Model\Dwarf;
+use FoolOfATook\Model\Elf;
+use FoolOfATook\Model\Goblin;
+use FoolOfATook\Model\Hobbit;
+use FoolOfATook\Model\Man;
+use FoolOfATook\Model\Orc;
+use FoolOfATook\Model\Trol;
+use FoolOfATook\Model\Wizard;
 use Traversable;
 
 
@@ -26,27 +25,14 @@ class EntityCollectionSerializationService implements EntityCollectionSerializab
         Orc::class,         Trol::class,        Wizard::class,
     ];
 
-    public function serialize(Traversable $childrenOfIluvatar): array
+    public function serialize(Traversable $childrenOfIluvatar): string
     {
-        $serializedCollection = [];
-        foreach ($childrenOfIluvatar as $value) {
-            $serializedCollection[] = serialize($value);
-        }
-
-        return $serializedCollection;
+        return serialize($childrenOfIluvatar);
     }
 
-    public function unserialize(array $childrenOfIluvatar): Traversable
+    public function unserialize(string $childrenOfIluvatar): Traversable
     {
-        $childrenOfIluvatarCollection = new ChildrenOfIluvatarCollection();
-
-        foreach ($childrenOfIluvatar as $data) {
-            $childrenOfIluvatarCollection->add(
-                unserialize($data, ['allowed_classes' => $this::ALLOWEDCLASES])
-            );
-        }
-
-        return $childrenOfIluvatarCollection;
+        return unserialize($childrenOfIluvatar);
     }
 
     public function unserializeOne(string $data, \Traversable $childrenOffIluvatar): Traversable

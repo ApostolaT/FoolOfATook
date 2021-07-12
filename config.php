@@ -1,14 +1,13 @@
 <?php
 
-use Model\Balrog;
-use Model\Dwarf;
-use Model\Elf;
-use Model\Goblin;
-use Model\Hobbit;
-use Model\Man;
-use Model\Orc;
-use Model\Trol;
-use Model\Wizard;
+use FoolOfATook\Model\Dwarf;
+use FoolOfATook\Model\Elf;
+use FoolOfATook\Model\Goblin;
+use FoolOfATook\Model\Hobbit;
+use FoolOfATook\Model\Man;
+use FoolOfATook\Model\Orc;
+use FoolOfATook\Model\Trol;
+use FoolOfATook\Model\Wizard;
 
 $config['GOODARMY'] = [
     Hobbit::class,

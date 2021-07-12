@@ -1,19 +1,14 @@
 <?php
 
 
-namespace Model;
+namespace FoolOfATook\Model;
 
 
-use ProjectTrait\SupernaturalSerializationTrait;
+use FoolOfATook\Traits\SupernaturalSerializationTrait;
 
 
 class Elf extends ChildOfIluvatar
 {
-    private const STRENGTH = 30;
-    private const INTELLIGENCE = 30;
-    private const CHARISMA = 5;
-    private const SUPERNATURAL = 5;
-
     private float $supernatural;
 
     public function __construct(
@@ -26,16 +21,14 @@ class Elf extends ChildOfIluvatar
         parent::__construct($name, $strength, $intelligence, $charisma);
         // TODO: check for range, throw Exception;
         $this->supernatural = $supernatural;
-        $this->setFightPower();
     }
 
-    protected function setFightPower(): void
+    protected function getFightPower(): float
     {
-        $this->fightPower =
-            $this::STRENGTH * $this->strength +
-            $this::INTELLIGENCE * $this->intelligence +
-            $this::CHARISMA * $this->charisma +
-            $this::SUPERNATURAL * $this->supernatural;
+        return  30  * $this->strength +
+                30  * $this->intelligence +
+                5   * $this->charisma +
+                5   * $this->supernatural;
     }
 
     use SupernaturalSerializationTrait;

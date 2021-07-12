@@ -1,11 +1,8 @@
 <?php
 
 
-namespace Model;
+namespace FoolOfATook\Model;
 
-
-use Exception;
-use Traversable;
 
 class ChildrenOfIluvatarCollection implements \IteratorAggregate
 {
@@ -21,8 +18,23 @@ class ChildrenOfIluvatarCollection implements \IteratorAggregate
         $this->childrenOfiluvatar[] = $child;
     }
 
-    public function getIterator()
+    public function getIterator(): \ArrayIterator
     {
         return new \ArrayIterator($this->childrenOfiluvatar);
+    }
+
+    public function getSize(): int
+    {
+        return count($this->childrenOfiluvatar);
+    }
+
+    public function __serialize(): array
+    {
+        return ['childrenOfIluvatar' => $this->childrenOfiluvatar];
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->childrenOfiluvatar = $data['childrenOfIluvatar'];
     }
 }

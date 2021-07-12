@@ -1,7 +1,7 @@
 <?php
 
 
-namespace ProjectException;
+namespace FoolOfATook\Exception;
 
 
 use Throwable;

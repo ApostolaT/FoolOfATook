@@ -1,14 +1,15 @@
 <?php
 
 
-namespace ProjectService;
+namespace FoolOfATook\Service;
 
 
-use Contract\EntityCollectionSerializableInterface;
-use ProjectException\CannotWriteToFileException;
-use ProjectException\FileNotFoundException;
-use ProjectException\FileNotWritableException;
-use ProjectException\FileOpeningException;
+use FoolOfATook\Contract\EntityCollectionSerializableInterface;
+use FoolOfATook\Exception\CannotWriteToFileException;
+use FoolOfATook\Exception\FileNotFoundException;
+use FoolOfATook\Exception\FileNotWritableException;
+use FoolOfATook\Exception\FileOpeningException;
+
 
 class FileWriterService
 {
@@ -29,17 +30,11 @@ class FileWriterService
             echo 'Opening file: ' . basename($fileName) . PHP_EOL;
             $file = $this->fileAccessWrapperService->openToWriteInFile($fileName);
             echo 'Starting serialization of the Children of Iluvatar' . PHP_EOL;
-            $array = $this->collectionSerializer->serialize($collection);
+            $data = $this->collectionSerializer->serialize($collection);
             echo 'Writing entities to the file: ' . basename($fileName) . PHP_EOL;
-            $counter = 1;
-            foreach ($array as $data) {
-                if (!fwrite($file, $data . PHP_EOL)) {
-                    throw new CannotWriteToFileException($fileName);
-                }
-                echo 'Writing entity ' . $counter . PHP_EOL;
-                ++$counter;
+            if (!fwrite($file, $data . PHP_EOL)) {
+                throw new CannotWriteToFileException($fileName);
             }
-            echo 'File population completed successfully, written ' . ($counter - 1) . ' entities' . PHP_EOL;
         } catch (CannotWriteToFileException $exception) {
             echo 'Error while writing to file:' . $exception->getMessage() . PHP_EOL;
             $this->fileAccessWrapperService->closeFile($file);

@@ -6,7 +6,7 @@ namespace FoolOfATook\Exception;
 
 use Throwable;
 
-class CannotWriteToFileException extends \Exception
+class RandomNumberBoundariesException extends \Exception
 {
     public function __construct($message = "", $code = 0, Throwable $previous = null)
     {

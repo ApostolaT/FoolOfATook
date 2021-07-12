@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Model;
+namespace FoolOfATook\Model;
 
 
-class ArmyCollection
+class ArmiesCollection
 {
     private ChildrenOfIluvatarCollection $goodArmy;
     private ChildrenOfIluvatarCollection $badArmy;
@@ -33,5 +33,15 @@ class ArmyCollection
     public function getBadArmy(): \Traversable
     {
         return $this->badArmy;
+    }
+
+    public function getGoodArmySize(): int
+    {
+        return $this->goodArmy->getSize();
+    }
+
+    public function getBadArmySize(): int
+    {
+        return $this->badArmy->getSize();
     }
 }

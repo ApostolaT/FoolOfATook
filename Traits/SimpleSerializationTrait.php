@@ -1,12 +1,12 @@
 <?php
 
 
-namespace ProjectTrait;
+namespace FoolOfATook\Traits;
 
 
 /**
  * This trait is used ont he entities with no supernatural powers
- * Trait SimpleSerializationTrait
+ * Traits SimpleSerializationTrait
  * @package ProjectTrait
  */
 trait SimpleSerializationTrait
@@ -19,8 +19,8 @@ trait SimpleSerializationTrait
             'strength'      => $this->strength,
             'intelligence'  => $this->intelligence,
             'charisma'      => $this->charisma,
-            'fightPower'    => $this->fightPower,
-            'health'        => $this->health
+            'dead'          => $this->dead,
+            'retreated'     => $this->retreated
         ];
     }
 
@@ -30,7 +30,7 @@ trait SimpleSerializationTrait
         $this->strength     = $data['strength'];
         $this->intelligence = $data['intelligence'];
         $this->charisma     = $data['charisma'];
-        $this->fightPower   = $data['fightPower'];
-        $this->health       = $data['health'];
+        $this->dead         = $data['dead'];
+        $this->retreated    = $data['retreated'];
     }
 }

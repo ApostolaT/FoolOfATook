@@ -1,14 +1,14 @@
 <?php
 
 
-namespace ProjectService;
+namespace FoolOfATook\Service;
 
 
-use ProjectException\FileClosingException;
-use ProjectException\FileNotFoundException;
-use ProjectException\FileNotReadableException;
-use ProjectException\FileNotWritableException;
-use ProjectException\FileOpeningException;
+use FoolOfATook\Exception\FileClosingException;
+use FoolOfATook\Exception\FileNotFoundException;
+use FoolOfATook\Exception\FileNotReadableException;
+use FoolOfATook\Exception\FileNotWritableException;
+use FoolOfATook\Exception\FileOpeningException;
 
 class FileAccessWrapperService
 {
@@ -16,6 +16,7 @@ class FileAccessWrapperService
      * @throws FileNotWritableException
      * @throws FileNotFoundException
      * @throws FileOpeningException
+     * @return resource
      */
     public function openToWriteInFile(string $fileName)
     {
@@ -45,6 +46,7 @@ class FileAccessWrapperService
      * @throws FileNotFoundException
      * @throws FileOpeningException
      * @throws FileNotReadableException
+     * @return resource
      */
     public function openToReadFromFile(string $fileName)
     {
@@ -73,7 +75,7 @@ class FileAccessWrapperService
     /**
      * @throws FileClosingException
      */
-    public function closeFile($file)
+    public function closeFile($file): void
     {
         echo 'Trying to close working file...' . PHP_EOL;
         if (!fclose($file)) {

@@ -1,14 +1,14 @@
 <?php
 
 
-namespace ProjectService;
+namespace FoolOfATook\Service;
 
 
-use Contract\EntityCollectionSerializableInterface;
-use ProjectException\FileNotFoundException;
-use ProjectException\FileNotReadableException;
-use ProjectException\FileOpeningException;
-use ProjectException\UnexpectedReadFailException;
+use FoolOfATook\Contract\EntityCollectionSerializableInterface;
+use FoolOfATook\Exception\FileNotFoundException;
+use FoolOfATook\Exception\FileNotReadableException;
+use FoolOfATook\Exception\FileOpeningException;
+use FoolOfATook\Exception\UnexpectedReadFailException;
 
 class FileReaderService
 {
@@ -27,19 +27,16 @@ class FileReaderService
     {
         try {
             echo 'Opening file: ' . basename($fileName) . PHP_EOL;
+            // TODO: Refactor code due to utilization of the file_get_contents();
             $file = $this->fileAccessWrapperService->openToReadFromFile($fileName);
             echo 'Starting deserialization of the Children of Iluvatar' . PHP_EOL;
-            $counter = 1;
-            while (($buffer = fgets($file)) !== false) {
-                echo "Deserializing object #$counter" . PHP_EOL;
-                $childrenOnIluvatar = $this->collectionSerializer->unserializeOne($buffer, $childrenOnIluvatar);
-                ++$counter;
-            }
-            if (!feof($file)) {
+            $buffer = file_get_contents($fileName);
+            if (false === $buffer) {
                 echo "---Exception---" . PHP_EOL;
-                throw new UnexpectedReadFailException("Unexpected read fail in $file" . PHP_EOL);
+                throw new UnexpectedReadFailException("Unexpected read fail in " . basename($fileName) . PHP_EOL);
             }
-            echo "Deserialization of " . ($counter - 1) . " objects ended successfully" . PHP_EOL;
+            echo "Deserializing objects..." . PHP_EOL;
+            $childrenOnIluvatar = $this->collectionSerializer->unserialize($buffer);
         } catch (UnexpectedReadFailException $exception) {
             echo $exception->getMessage();
             $this->fileAccessWrapperService->closeFile($file);

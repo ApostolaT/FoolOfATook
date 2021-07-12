@@ -1,12 +1,12 @@
 <?php
 
 
-namespace ProjectService;
+namespace FoolOfATook\Service;
 
 
-use Model\ArmyCollection;
-use Model\Balrog;
-use ProjectException\NoSuchChildInConfig;
+use FoolOfATook\Model\ArmiesCollection;
+use FoolOfATook\Model\Balrog;
+use FoolOfATook\Exception\NoSuchChildInConfig;
 
 class ArmyParserService
 {
@@ -19,9 +19,9 @@ class ArmyParserService
         $this->badArmyConfig    = $badArmyConfig;
     }
 
-    public function parseChildrenOfIluvatar(\Traversable $childrenOfIluvatarCollection): ArmyCollection
+    public function parseChildrenOfIluvatar(\Traversable $childrenOfIluvatarCollection): ArmiesCollection
     {
-        $armyCollection = new ArmyCollection();
+        $armyCollection = new ArmiesCollection();
         try {
             echo 'Initializing the Armies...' . PHP_EOL;
             echo 'Extracting entities:' . PHP_EOL;
