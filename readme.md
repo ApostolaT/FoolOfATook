@@ -1,4 +1,5 @@
 **Summary of my work**
+
 With the current deadline, 13-07-2021, 12:00 pm my work contains all the mandatory feature that the
 requirement have. The code is missing the refactorization sugested by the trainer Enache. I chose to
 not implement the correctur because at that time my program was not fully functional, and all the feedback
