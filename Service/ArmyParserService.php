@@ -33,6 +33,7 @@ class ArmyParserService
             echo 'Initializing the Armies...' . PHP_EOL;
             echo 'Extracting entities:' . PHP_EOL;
             foreach ($childrenOfIluvatarCollection as $value) {
+                echo '-->';
                 if ($value->isDead() === true) {
                     $this->firstBattle = false;
                     echo get_class($value) . ' is dead, he is no longer able to fight' . PHP_EOL;

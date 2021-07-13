@@ -63,15 +63,16 @@ if (isset($config)) {
     $battleIsOver = false;
     $battleCounter = 1;
     do {
-        echo PHP_EOL . " --- Battle $battleCounter ---" . PHP_EOL . PHP_EOL;
+        echo PHP_EOL . "--- Battle $battleCounter ---" . PHP_EOL . PHP_EOL;
         $readChildrenOfIluvatar = $fileReaderService->readFromFile(__ROOT__ . "/Resources/moria.txt", $readChildrenOfIluvatar);
         $armyCollection = $armyParserService->parseChildrenOfIluvatar($readChildrenOfIluvatar);
 
         $battleIsOver = $battleService->battle($armyCollection);
         if ($battleIsOver === false) {
+            echo "--- Saving battle results to the moria archives ---" . PHP_EOL;
             $fileWriteService->writeToFile(__ROOT__ . "/Resources/moria.txt", $readChildrenOfIluvatar);
         }
-        echo PHP_EOL . " --- Battle $battleCounter is over ---" . PHP_EOL . PHP_EOL;
+        echo PHP_EOL . "--- Battle $battleCounter is over ---" . PHP_EOL . PHP_EOL;
         ++$battleCounter;
     } while ($battleIsOver === false);
     echo "The war is over" . PHP_EOL;
