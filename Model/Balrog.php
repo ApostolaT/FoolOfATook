@@ -22,7 +22,7 @@ class Balrog extends ChildOfIluvatar
         $this->supernatural = $supernatural;
     }
 
-    protected function getFightPower(): float
+    public function getFightPower(): float
     {
         return  60  * $this->strength +
                 5   * $this->intelligence +

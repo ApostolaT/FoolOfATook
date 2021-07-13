@@ -10,13 +10,20 @@ use FoolOfATook\Exception\NoSuchChildInConfig;
 
 class ArmyParserService
 {
-    private array $goodArmyConfig;
-    private array $badArmyConfig;
+    private array                   $goodArmyConfig;
+    private array                   $badArmyConfig;
+    private RandomNumberGenerator   $randomNumberGenerator;
+    private bool                    $firstBattle;
 
-    public function __construct(array $goodArmyConfig, array $badArmyConfig)
-    {
-        $this->goodArmyConfig   = $goodArmyConfig;
-        $this->badArmyConfig    = $badArmyConfig;
+    public function __construct(
+        array $goodArmyConfig,
+        array $badArmyConfig,
+        RandomNumberGenerator $randomNumberGenerator
+    ) {
+        $this->goodArmyConfig        = $goodArmyConfig;
+        $this->badArmyConfig         = $badArmyConfig;
+        $this->randomNumberGenerator = $randomNumberGenerator;
+        $this->firstBattle           = true;
     }
 
     public function parseChildrenOfIluvatar(\Traversable $childrenOfIluvatarCollection): ArmiesCollection
@@ -26,8 +33,24 @@ class ArmyParserService
             echo 'Initializing the Armies...' . PHP_EOL;
             echo 'Extracting entities:' . PHP_EOL;
             foreach ($childrenOfIluvatarCollection as $value) {
-                if (get_class($value) === Balrog::class) {
+                if ($value->isDead() === true) {
+                    $this->firstBattle = false;
+                    echo get_class($value) . ' is dead, he is no longer able to fight' . PHP_EOL;
+                    continue;
+                }
+
+                if (get_class($value) === Balrog::class && $this->firstBattle === true) {
                     echo 'The good army encountered a Balrog, but they are not ready to battle him yet' . PHP_EOL;
+                    continue;
+                }
+
+                if (get_class($value) === Balrog::class && $this->firstBattle === false) {
+                    if ($this->randomNumberGenerator->generateRandomInt(1, 100) < 52) {
+                        echo "Balrog still watches the battle from the far"  . PHP_EOL;
+                        continue;
+                    }
+                    echo 'A Balrog, decided to enter a battle' . PHP_EOL;
+                    $armyCollection->addToBadArmy($value);
                     continue;
                 }
 

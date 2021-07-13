@@ -23,7 +23,7 @@ class Trol extends ChildOfIluvatar
         $this->supernatural = $supernatural;
     }
 
-    protected function getFightPower(): float
+    public function getFightPower(): float
     {
         return  50  * $this->strength +
                 1   * $this->intelligence +

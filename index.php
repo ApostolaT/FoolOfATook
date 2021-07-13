@@ -53,14 +53,28 @@ $readChildrenOfIluvatar = new ChildrenOfIluvatarCollection();
 $readChildrenOfIluvatar = $fileReaderService->readFromFile(__ROOT__."/Resources/moria.txt", $readChildrenOfIluvatar);
 
 $randomNumberGenerator = new RandomNumberGenerator();
+$battleService = new BattleService($randomNumberGenerator);
 
 if (isset($config)) {
     echo "Reading the characters that are allowed in the armies..." . PHP_EOL;
     $goodArmyConfig = $config['GOODARMY'];
     $badArmyConfig = $config['BADARMY'];
-    $armyParserService = new ArmyParserService($goodArmyConfig, $badArmyConfig);
-    $armyCollection = $armyParserService->parseChildrenOfIluvatar($readChildrenOfIluvatar);
+    $armyParserService = new ArmyParserService($goodArmyConfig, $badArmyConfig, $randomNumberGenerator);
+    $battleIsOver = false;
+    $battleCounter = 1;
+    do {
+        echo PHP_EOL . " --- Battle $battleCounter ---" . PHP_EOL . PHP_EOL;
+        $readChildrenOfIluvatar = $fileReaderService->readFromFile(__ROOT__ . "/Resources/moria.txt", $readChildrenOfIluvatar);
+        $armyCollection = $armyParserService->parseChildrenOfIluvatar($readChildrenOfIluvatar);
 
-    $battleService = new BattleService($randomNumberGenerator);
-    $battleService->battle($armyCollection);
+        $battleIsOver = $battleService->battle($armyCollection);
+        if ($battleIsOver === false) {
+            $fileWriteService->writeToFile(__ROOT__ . "/Resources/moria.txt", $readChildrenOfIluvatar);
+        }
+        echo PHP_EOL . " --- Battle $battleCounter is over ---" . PHP_EOL . PHP_EOL;
+        ++$battleCounter;
+    } while ($battleIsOver === false);
+    echo "The war is over" . PHP_EOL;
+    $winner = ($armyCollection->getGoodArmySize() === 0) ? 'Bad Army' : 'Good Army';
+    echo "The winner is " . $winner . PHP_EOL;
 }

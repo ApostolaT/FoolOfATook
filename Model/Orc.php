@@ -23,7 +23,7 @@ class Orc extends ChildOfIluvatar
         $this->supernatural = $supernatural;
     }
 
-    protected function getFightPower(): float
+    public function getFightPower(): float
     {
         return  30  * $this->strength +
                 10  * $this->intelligence +

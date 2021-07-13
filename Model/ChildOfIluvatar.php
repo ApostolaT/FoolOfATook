@@ -24,7 +24,43 @@ abstract class ChildOfIluvatar
         $this->retreated    = false;
     }
 
-    abstract protected function getFightPower(): float;
+    abstract public function getFightPower(): float;
     abstract public function __serialize(): array;
     abstract public function __unserialize(array $data): void;
+
+    public function isDead(): bool
+    {
+        return $this->dead;
+    }
+
+    public function isRetreated(): bool
+    {
+        return $this->retreated;
+    }
+
+    /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param bool $dead
+     */
+    public function setDead(bool $dead): void
+    {
+        $this->dead = $dead;
+    }
+
+    /**
+     * @param bool $retreated
+     */
+    public function setRetreated(bool $retreated): void
+    {
+        $this->retreated = $retreated;
+    }
+
+
 }

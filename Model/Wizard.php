@@ -23,7 +23,7 @@ class Wizard extends ChildOfIluvatar
         $this->supernatural = $supernatural;
     }
 
-    protected function getFightPower(): float
+    public function getFightPower(): float
     {
         return  20  * $this->strength +
                 30  * $this->intelligence +

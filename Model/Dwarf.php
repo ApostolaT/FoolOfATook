@@ -19,7 +19,7 @@ class Dwarf extends ChildOfIluvatar
         // TODO: check for range, throw Exception;
     }
 
-    protected function getFightPower(): float
+    public function getFightPower(): float
     {
         return  40 * $this->strength +
                 10 * $this->intelligence +

@@ -19,7 +19,7 @@ class Hobbit extends ChildOfIluvatar
         // TODO: check for range, throw Exception;
     }
 
-    protected function getFightPower(): float
+    public function getFightPower(): float
     {
         return  10 * $this->strength +
                 20 * $this->intelligence +
