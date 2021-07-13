@@ -36,8 +36,8 @@ $fileAccessWrapperService = new FileAccessWrapperService();
 $fileWriteService = new FileWriterService($entitySerializationService, $fileAccessWrapperService);
 
 echo PHP_EOL . "====================" . PHP_EOL;
-echo "= SAVING  ENTITIES =" . PHP_EOL;
-echo "====================" . PHP_EOL . PHP_EOL;
+echo           "= SAVING  ENTITIES =" . PHP_EOL;
+echo           "====================" . PHP_EOL . PHP_EOL;
 $fileWriteService->writeToFile(__ROOT__."/Resources/moria.txt", $childrenOfIluvatar);
 
 $fileReaderService = new FileReaderService($entitySerializationService, $fileAccessWrapperService);
@@ -53,13 +53,12 @@ if (isset($config)) {
     $battleIsOver = false;
     $battleCounter = 1;
     echo PHP_EOL . "====================" . PHP_EOL;
-    echo "= PREPING FOR WAR  =" . PHP_EOL;
-    echo "====================" . PHP_EOL . PHP_EOL;
-    echo PHP_EOL . "...Preparing for the battles..." . PHP_EOL;
+    echo           "= PREPING FOR WAR  =" . PHP_EOL;
+    echo           "====================" . PHP_EOL . PHP_EOL;
     do {
         echo PHP_EOL . "============" . PHP_EOL;
-        echo "= Battle $battleCounter =" . PHP_EOL;
-        echo "============" . PHP_EOL . PHP_EOL;
+        echo           "= Battle $battleCounter =" . PHP_EOL;
+        echo           "============" . PHP_EOL . PHP_EOL;
         $readChildrenOfIluvatar = $fileReaderService->readFromFile(__ROOT__ . "/Resources/moria.txt", $readChildrenOfIluvatar);
         $armyCollection = $armyParserService->parseChildrenOfIluvatar($readChildrenOfIluvatar);
 
@@ -69,8 +68,8 @@ if (isset($config)) {
             $fileWriteService->writeToFile(__ROOT__ . "/Resources/moria.txt", $readChildrenOfIluvatar);
         }
         echo PHP_EOL . "===============" . PHP_EOL;
-        echo "= BATTLE OVER =" . PHP_EOL;
-        echo "===============" . PHP_EOL . PHP_EOL;
+        echo           "= BATTLE OVER =" . PHP_EOL;
+        echo           "===============" . PHP_EOL . PHP_EOL;
 
         ++$battleCounter;
     } while ($battleIsOver === false);
